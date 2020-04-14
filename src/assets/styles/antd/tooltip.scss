@@ -1,0 +1,24 @@
+.zq-ant-popconfirm{
+  .ant-popover-message-title{
+    padding-left: 0;
+    color: #AABBBB;
+    text-align: center;
+  }
+  .ant-popover-buttons{
+    display: flex;
+    justify-content: center;
+
+    button{
+      margin-left: 0;
+      margin-right: 0;
+      box-shadow: none;
+
+      &:first-child{
+        margin-right: 5px;
+      }
+      &:last-child{
+        margin-left: 5px;
+      }
+    }
+  }
+}

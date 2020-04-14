@@ -1,0 +1,71 @@
+.tl{text-align: left}
+.tc{text-align: center}
+.tr{text-align: right}
+
+
+/* 垂直居中（） */
+.vc-wrap{
+  text-align: center;
+
+  &::before{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 0;
+  }
+  .vc{
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    text-align: left;
+  }
+}
+
+/* 定位 */
+.abs {
+  position: absolute;
+}
+/* 定位-满 */
+.abs-full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* 定位-中心 */
+.abs-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 表格布局 */
+/* 媒体对象  这是一个抽象的样式，用以构建不同类型的组件，这些组件都具有在文本内容的左或右侧对齐的图片（就像博客评论或 Twitter 消息等）。 */
+.media{
+  display: table;
+}
+.media,
+.media-body{
+  overflow: hidden;
+  zoom: 1;
+}
+.media-body{
+  width: 10000px;
+}
+.media-left{ padding-right: 10px; }
+.media-right{ padding-left: 10px; }
+
+.media-left,
+.media-right,
+.media-body{
+  display: table-cell;
+  vertical-align: top;
+}
+.media-middle{ vertical-align: middle; }
+.media-bottom{ vertical-align: bottom; }
+
+.vm{vertical-align:middle}

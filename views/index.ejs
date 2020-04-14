@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 声明文档使用的字符编码 -->
+  <meta charset="UTF-8" />
+  <title><%= htmlWebpackPlugin.options.title %></title>
+
+  <!-- 页面关键词 -->
+  <meta name="keywords" content="交互设计,UI设计,设计,美工,UI,UE,UX,用户体验设计,产品经理,设计师,增长,运营,营销,社群,设计师找工作,设计师兼职,转行,学习,培训" />
+  <!-- <meta name="keywords" content="知群, 视频直播" /> -->
+  <!-- 页面描述 -->
+  <meta name="description" content="知群 - 互联网人的学习平台，旗下 UI/UX 设计课，为 0-3 岁设计师，提供系统知识、项目实战、作品集辅导等课程，邀请BAT 及咨询公司资深设计师讲授，连接优秀设计师，从根本上建立设计思维体系，深度批改作业+答疑，延伸职业高度。" />
+  <!-- <meta name="description" content="直播听课，互联网人的学习群" /> -->
+  <!-- 网页作者 -->
+  <meta name="author" content="朱朝阳 15903620494" />
+
+  <!-- 网站想要控制页面发送给 server 的 referer 信息的情况下，可以使用这一 referer metadata 参数。 -->
+  <meta name="referrer" content="always">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <!-- width - viewport的宽度 height - viewport的高度
+  initial-scale - 初始的缩放比例
+  minimum-scale - 允许用户缩放到的最小比例
+  maximum-scale - 允许用户缩放到的最大比例
+  user-scalable - 用户是否可以手动缩放 -->
+  <!-- <meta name="flexible" content="initial-dpr=1" /> -->
+
+
+  <!-- 在相应的页面的<head>里加上这句代码，意思是自动将http的不安全请求升级为https -->
+  <!-- 将http请求转成https请求 -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+  <!-- 网站想要控制页面发送给 server 的 referer 信息的情况下，可以使用这一 referer metadata 参数。 -->
+  <meta name="referrer" content="always">
+
+
+  <!-- 强制浏览器使用WebKit内核 -->
+  <!-- 强制Chromium内核，作用于360浏览器、QQ浏览器等国产双核浏览器： -->
+  <meta name="renderer" content="webkit" />
+  <!-- 强制Chromium内核，作用于其他双核浏览器 -->
+  <meta name="force-rendering" content="webkit" />
+  <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <!-- 线上拉取缓存 -->
+  <!-- Cache-Control指定请求和响应遵循的缓存机制 -->
+  <!-- no-cache，浏览器和缓存服务器都不应该缓存页面信息；
+  public，浏览器和缓存服务器都可以缓存页面信息；
+  no-store，请求和响应的信息都不应该被存储在对方的磁盘系统中；
+  must-revalidate，对于客户机的每次请求，代理服务器必须想服务器验证缓存是否过时；
+  Last-Modified只页面的最后生成时间，GMT格式；
+  Expires过时期限值，GMT格式，指浏览器或缓存服务器在该时间点后必须从真正的服务器中获取新的页面信息；
+  上面两个值在JSP中设置值为字符型的GMT格式，无法生效，设置long类型才生效； -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+
+  <!-- Pragma(cache模式)  禁止浏览器从本地计算机的缓存中访问页面内容 -->
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+
+  <!-- 搜索引擎抓取 -->
+  <meta name="robots" content="index,follow"/>
+  <!-- 禁止百度快照 ， 如果要针对所有搜索引擎，只要将 Baiduspider 改成 robots 即可-->
+  <meta name="Baiduspider" content="noarchive" />
+  <!-- 不让百度转码 -->
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+  <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+  <meta name="format-detection" content="telphone=no, email=no"/>
+
+  <!-- iOS 设备 -->
+  <!-- "添加到主屏幕“后，全屏显示 -->
+  <meta content="yes" name="apple-touch-fullscreen" />
+  <!-- 添加到主屏后的标题（iOS 6 新增） -->
+  <meta name="apple-mobile-web-app-title" content="标题" />
+  <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- 设置苹果工具栏颜色 -->
+  <!-- 默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明） -->
+  <!-- 注意：若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。 -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+  <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL" />
+
+
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="msapplication-TileColor" content="#000"/>
+
+  <meta name="google-site-verification" content="FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg" />
+
+
+
+  <style>
+    *{ margin: 0; padding: 0; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+
+  <div id="root">
+    <div class="root-loading" style="color: #38B0B7; font-size: 30px; padding-top: 200px; text-align: center; line-height: 1;">Loading...</div>
+  </div>
+
+</body>
+</html>

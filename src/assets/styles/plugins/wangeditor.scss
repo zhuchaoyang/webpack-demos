@@ -1,0 +1,16 @@
+.w-e-text-container{
+  ul{
+    list-style: disc;
+  }
+  ol{
+    list-style: decimal;
+  }
+  a{
+    color: #38B0B7;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+}

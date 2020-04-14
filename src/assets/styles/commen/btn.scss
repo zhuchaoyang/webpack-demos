@@ -1,0 +1,190 @@
+// 实心按钮 激活样式
+// @import '@/assets/styles/commen/btn.scss';
+
+@mixin zq-btn-solid(
+  $bgColor: #FF4C4C,
+){
+  background: $bgColor;
+
+  &:hover, &:focus{
+    color: #fff;
+    border: none;
+    // mobile
+    background: $bgColor;
+
+    // PC
+    // background: mix($bgColor, #000, 90%);
+  }
+  &:active{
+    // background: darken($bgColor, 10%);
+    background: mix($bgColor, #000, 90%);
+  }
+
+  &[ant-click-animating-without-extra-node="true"]:after{
+    border-color: $bgColor;
+  }
+
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active{
+    border-color: none;
+    color: #fff;
+    background: mix($bgColor, #fff, 20%);
+  }
+}
+// 幽灵按钮 激活样式
+@mixin zq-btn-ghost(
+  $bgColor: #FF4C4C,
+){
+  color: $bgColor;
+  border: 1px solid $bgColor;
+
+  &:hover, &:focus{
+    // mobile
+    color: $bgColor ;
+    border-color: $bgColor;
+
+    // PC
+    // background: rgba($bgColor,0.1);
+    // color: darken($bgColor, 10%);
+    // border-color: rgba($bgColor, 10%);
+  }
+  &:active{
+    background: rgba($bgColor, 0.1);
+    color: rgba($bgColor, 10%);
+    border-color: rgba($bgColor, 10%);
+  }
+
+  &[ant-click-animating-without-extra-node="true"]:after{
+    border-color: $bgColor;
+  }
+}
+
+
+.ant-btn{
+  &.zq-btn-clear{
+    position: relative;
+    // padding: 0 0.24rem;
+    // height: 0.48rem;
+    line-height: 1;
+    // font-size: 0.16rem;
+    font-family: 'ali-puhui-Bold';
+    // font-weight: 700;
+    text-align: center;
+    color: #fff;
+    // border-radius: 0.04rem;
+    border: none;
+    box-shadow: none;
+    // letter-spacing: 1px;
+
+    &:hover, &:focus{
+      // color: #fff;
+      // border: none;
+      box-shadow: none;
+    }
+
+    &.ant-btn-loading{
+      i{
+        margin-right: 0.05rem;
+      }
+    }
+    &[type=disabled]{}
+
+    span{
+      // vertical-align: middle;
+    }
+  }
+  &.zq-btn-small{
+    padding: 0 0.15rem;
+    height: 0.3rem;
+    font-size: 0.14rem;
+    letter-spacing: 0;
+  }
+
+  // 默认项
+  &.zq-btn-default{}
+  // 首选项
+  &.zq-btn-primary{
+    @include zq-btn-solid();
+  }
+  // 危险
+  &.zq-btn-danger{
+    @include zq-btn-solid();
+  }
+  // 成功
+  &.zq-btn-success{
+    @include zq-btn-solid(#00B5C0);
+  }
+  &.zq-btn-success2{
+    @include zq-btn-solid(#38B0B7);
+  }
+  // 警告
+  &.zq-btn-warning{
+    @include zq-btn-solid(#FDB13C);
+  }
+  &.zq-btn-dark{
+    @include zq-btn-solid(#283436);
+  }
+  &.zq-btn-pink{
+    @include zq-btn-solid(#FF2D55);
+  }
+  &.zq-btn-dark-333{
+    @include zq-btn-solid(#333333);
+  }
+  &.zq-btn-ec5658{
+    @include zq-btn-solid(#EC5658);
+  }
+  &.zq-btn-268c92{
+    @include zq-btn-solid(#268C92);
+  }
+
+
+
+
+  &.zq-btn-ghost-primary{
+    @include zq-btn-ghost();
+  }
+  // 危险
+  &.zq-btn-ghost-danger{
+    @include zq-btn-ghost();
+  }
+  // 成功 Green
+  &.zq-btn-ghost-success{
+    @include zq-btn-ghost(#00B5C0);
+  }
+  // 成功 red
+  &.zq-btn-ghost-success-red{
+    @include zq-btn-ghost(#FF4C4C);
+  }
+
+  // 警告
+  &.zq-btn-ghost-warning{
+    @include zq-btn-ghost(#FDB13C);
+  }
+  // 警告
+  &.zq-btn-ghost-wx{
+    @include zq-btn-ghost(#1BB91D);
+  }
+
+}
+
+
+@media (min-width: 768px){
+  .ant-btn{
+    &.zq-btn-clear{
+      padding: 0 24px;
+      height: 48px;
+
+      &.ant-btn-loading{
+        i{
+          margin-right: 5px;
+        }
+      }
+    }
+    &.zq-btn-small{
+      padding: 0 15px;
+      height: 30px;
+    }
+  }
+}

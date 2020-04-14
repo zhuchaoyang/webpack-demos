@@ -1,0 +1,30 @@
+.fl{float: left; }
+.fr{float: right; }
+
+/* 清理浮动 */
+.clearfix {
+  zoom: 1;/*IE/7/6*/
+}
+.clearfix::before,
+.clearfix::after{
+  content: ' ';
+  display: table;
+}
+.clearfix::after{
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+/* 清除浮动 */
+// .ks-clear:after, .clear:after {
+//   content: '\20';
+//   display: block;
+//   height: 0;
+//   clear: both;
+// }
+//
+// .ks-clear, .clear {
+//   *zoom: 1;
+// }

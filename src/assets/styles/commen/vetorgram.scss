@@ -1,0 +1,189 @@
+@import '@/assets/styles/setting.scss';
+
+/* 简单的矢量图形 */
+
+/* 关闭(旧) */
+.icon--close::before,
+.icon--close::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(45deg);
+  width: 0.14rem;
+  height: 0.015rem;
+  border-radius: 0.02rem;
+  background: #fff;
+}
+.icon--close::after{
+  transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+// 关闭按钮(新)
+.zq-icon-close{
+  position: absolute;
+  cursor: pointer;
+
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    width: 14px;
+    height: 2px;
+    border-radius: 2px;
+    background: #AABBBB;
+    transition: all 0.2s linear;
+  }
+
+  &::after{
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+  }
+
+  &:hover{
+    &::before,
+    &::after{
+      background: darken(#AABBBB, 30);
+    }
+  }
+}
+// 弹窗关闭按钮
+.zq-modal-close{
+  top: 0;
+  right: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  padding-top: 0.1rem;
+  text-align: center;
+  z-index: 2;
+}
+
+
+
+/* 小三角 */
+.zq-trigger{
+  position: relative;
+
+  &::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(100%, -50%);
+
+    border-width: 5px 8px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $themeColor;
+  }
+}
+.zq-trigger-right{}
+.zq-trigger-bottom{}
+.zq-trigger-left{}
+
+
+// 小三角
+.zq-triangle{
+  position: absolute;
+  left: 50%;
+  border-style: solid;
+  border-width: 0.05rem;
+  border-color:  #fff #fff transparent transparent;
+  // border-color: red green yellow blue;
+  box-shadow: 1px 1px 4px rgba(0,0,0, 0.02);
+}
+.zq-triangle-bottom{
+  bottom: 0.01rem;
+  transform: translate(-50%, 50%) rotateZ(135deg);
+}
+.zq-triangle-top{
+  top: 0.01rem;
+  transform: translate(-50%, -50%) rotateZ(-45deg);
+}
+
+
+
+
+/* 箭头(默认 上箭头) */
+@mixin zq-arrow-direction(
+  $direction: 1,
+){
+  $rotate1: ($direction * 45);
+  $rotate2: $rotate1 + 90;
+
+  &::before{
+    // transform: rotateZ(#{$rotate1}deg) translate(0, 50%);
+    transform: rotateZ(#{$rotate1}deg) translate(0, 50%);
+  }
+  &::after{
+    // transform: rotateZ(#{$rotate2}deg) translate(0, -50%);
+    transform: rotateZ(#{$rotate2}deg) translate(0, -50%);
+  }
+}
+
+.zq-arrow{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+
+  @include zq-arrow-direction(
+    $direction: 1,
+  );
+}
+.zq-arrow::before,
+.zq-arrow::after{
+  $zqArrowHeight: 2px;
+
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+
+  width: 20px;
+  height: $zqArrowHeight;
+  background: #ccc;
+  border-radius: $zqArrowHeight;
+  transition: all .3s $aniTimeFunction2;
+}
+
+
+// 上箭头
+.zq-arrow-top{
+  @include zq-arrow-direction(1);
+}
+
+// 右箭头
+.zq-arrow-right{
+  @include zq-arrow-direction(3);
+}
+
+// 下箭头
+.zq-arrow-bottom{
+  @include zq-arrow-direction(5);
+}
+
+// 左箭头
+.zq-arrow-left{
+  @include zq-arrow-direction(7);
+}
+
+
+
+
+// 线条
+.zq-dashed-top-camp{
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1px dashed $colorTextDesc2;
+  }
+}

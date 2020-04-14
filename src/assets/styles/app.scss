@@ -1,0 +1,168 @@
+@import '@/assets/styles/config.scss';
+
+#root{}
+#root-wrapper-mobile{
+  font-size: 0.14rem;
+}
+.root-loading{
+  color: #38B0B7;
+  font-size: 30px;
+  padding-top: 200px;
+  text-align: center;
+  background: #fff;
+  min-height: 100vh;
+  line-height: 1;
+}
+
+.index-body{
+  overflow-y: hidden;
+}
+.noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+.noscroll body {
+  position: relative;
+}
+
+/*布局*/
+.container,
+.container1440 {
+  margin: 0 auto;
+  width: 1220px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+
+  &::before, &::after{
+    display: table;
+    content: " ";
+  }
+  &::after{
+    clear: both;
+  }
+}
+.container1440{ width: 1440px; }
+.container-fluid{ width: 100%; }
+
+
+// .page-full-fixed{
+//   height: 100vh;
+//   overflow: hidden;
+  
+//   &::-webkit-scrollbar {
+//     width: 0;
+//     height: 0;
+//   }
+
+//   &-scroll{
+//     height: 100%;
+//     overflow-y: scroll;
+//   }
+// }
+
+
+.page-container{
+  position: relative;
+  background: $colorBgLighter;
+  min-height: 100vh;
+  overflow: hidden;
+
+  &.page-bg-dark{
+    background: $colorBg;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 固定底部
+.footer-fixed{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.10);
+}
+.footer-fixed-iphonex{
+  padding-bottom: 0.34rem;
+}
+
+// 头像
+.avatar-wrap{
+  font-size: 0;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img{
+    height: auto;
+    width: auto;
+  }
+}
+
+
+//标题
+h1{
+  font-size: 36px;
+}
+h2{
+  font-size: 28px;
+}
+h3{
+  font-size: 24px;
+}
+h4{
+  font-size: 20px;
+}
+h5{
+  font-size: 18px;
+}
+
+
+
+@media (min-width: 576px){
+  #root-wrapper-mobile{
+    position: relative;
+    max-width: 3.75rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    width: 100%;
+  }
+  h1{
+    font-size: 0.36rem;
+  }
+  h2{
+    font-size: 0.28rem;
+  }
+  h3{
+    font-size: 0.24rem;
+  }
+  h4{
+    font-size: 0.2rem;
+  }
+  h5{
+    font-size: 0.18rem;
+  }
+  .page-container{
+    font-size: 0.14rem;
+  }
+
+
+  .media-left{ padding-right: 0.1rem; }
+  .media-right{ padding-left: 0.1rem; }
+}

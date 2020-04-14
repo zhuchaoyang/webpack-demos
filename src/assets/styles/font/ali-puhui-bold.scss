@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'ali-puhui-Bold';
+  font-display: swap;
+  src: url('//at.alicdn.com/t/webfont_egatrv5dkc7.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/webfont_egatrv5dkc7.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/webfont_egatrv5dkc7.woff2') format('woff2'),
+  url('//at.alicdn.com/t/webfont_egatrv5dkc7.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/webfont_egatrv5dkc7.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/webfont_egatrv5dkc7.svg#Alibaba-PuHuiTi-Bold') format('svg'); /* iOS 4.1- */
+}
+@mixin ali-puhui-font(
+  $fontFamily: "ali-puhui-Bold"
+){
+  font-family: #{$fontFamily} !important;;
+  font-size: 0.14rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;  /*抗锯齿*/
+  // -webkit-text-stroke-width: 0.2px; /*描边*/
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ali-puhui-bold{
+  @include ali-puhui-font();
+}
+
+.ali-puhui-lighter{
+
+}

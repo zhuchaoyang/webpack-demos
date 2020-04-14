@@ -1,0 +1,22 @@
+/*antd 重定义样式*/
+@import './resetAntd.scss';
+
+@import './wangeditor.scss';
+@import './minirefresh.scss';
+@import './jwplayer.scss';
+
+
+
+.video-js{
+  .vjs-poster{
+    background-size: cover;
+  }
+  button{
+    outline: none;
+  }
+}
+/* 百度地图 */
+.BMap_Marker img{
+  width: initial;
+  height: initial;
+}

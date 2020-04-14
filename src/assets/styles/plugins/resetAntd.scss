@@ -1,0 +1,142 @@
+@import '../antd/tooltip.scss';
+@import '../antd/modals.scss';
+@import '../antd/spin.scss';
+@import '../antd/message.scss';
+
+/* 重写antd默认布局样式 */
+// .ant-layout {
+//   .ant-layout-header {
+//     height: auto;
+//     line-height: normal;
+//     padding: 0;
+//     background: #fff;
+//     overflow: hidden;
+//   }
+//
+//   .ant-layout-content {
+//     position: relative;
+//     min-height: auto; // override antd min-height: 0;
+//     // overflow: auto;
+//   }
+//
+//   .ant-layout-footer {
+//     text-align: center;
+//     width: 100%;
+//     background-color: #fff;
+//     padding: 10px;
+//   }
+// }
+
+
+body{
+  .ant-back-top{
+    z-index: 500;
+  }
+}
+
+
+
+// 手机端 底部选择器
+.modal-footer-select{
+  .ant-modal{
+    position: absolute;
+    top: initial;
+    bottom: 0.2rem;
+    transform-origin: center 1000vh 0 !important;
+    width: 100% !important;
+    margin: 0;
+    padding: 0 0.1rem;
+  }
+  .ant-modal-content{
+    box-shadow: 0 0.12rem 0.36rem 0 rgba(14,14,14,0.10);
+    border-radius: 0.05rem;
+    padding: 0.2rem 0;
+  }
+  .ant-modal-body{
+    padding: 0 0.2rem;
+
+  }
+
+  .modal-main{
+    li{
+      height: 0.6rem;
+      line-height: 0.6rem;
+      text-align: center;
+      border-bottom: 1px solid #ededed;
+      &:last-child{
+        border-bottom: none;
+      }
+
+      span{
+        vertical-align: top;
+        font-size: 0.16rem;
+        font-weight: 700;
+      }
+    }
+    li.danger{
+      span{
+        color: #ff4247;
+      }
+    }
+  }
+}
+
+
+
+// menu
+.ant-menu {
+  .ant-menu-submenu-arrow{
+    margin-right: initial;
+    overflow: initial;
+    vertical-align: initial
+  }
+}
+
+// 回到顶部
+body .ant-back-top{
+  bottom: 90px;
+  right: 50px;
+}
+
+// tab
+body {
+  .ant-tabs-nav-wrap{
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+// 下拉框
+body .ant-dropdown{
+  background: #fff;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.10), 0 0 80px 0 rgba(0,0,0,0.06);
+  border-radius: 6px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(241, 241, 241, 0);
+  }
+}
+
+// 分页
+body{
+  .ant-pagination-jump-prev:after, .ant-pagination-jump-next:after {
+    display: inline-block;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  body .ant-back-top{
+    bottom: 90px;
+    right: 20px;
+  }
+}

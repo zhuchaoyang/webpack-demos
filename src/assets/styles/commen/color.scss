@@ -1,0 +1,268 @@
+// @import '@/assets/styles/commen/color.scss';
+
+// @import '@/assets/styles/setting.scss';
+@import '@/assets/styles/config.scss';
+
+// hlsa
+// H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360
+// S：Saturation(饱和度)。取值为：0.0% - 100.0%
+// L：Lightness(亮度)。取值为：0.0% - 100.0%
+// A：Alpha透明度。取值0~1之间。
+
+// 2. RGB函数
+// 在Sass中，共有六种RGB函数：
+//
+//   rgb($red, $green, $blue) //根据RGB中的三个值计算出一个颜色；
+//   rgba($red, $green, $blue, $alpha) //根据RGB中红、绿、蓝和透明度计算出一个颜色；
+//   red($color) //获取RGB中的红色值；
+//   green($color) //获取RGB中的绿色值；
+//   blue($color) //获取RGB中的蓝色值；
+//   mix($color1, $color2, [$weight]) //混合两种颜色；
+      // $weight表示的混合的权重，默认值为50%，指的第一个颜色$color1的比例，取值范围为0~100%，函数最终的返回值是颜色的十六进制表达式。
+
+// 3. HSL函数
+// 在Sass中，共有13种HSL函数：
+  // hsl($hue, $saturation, $lightness) //根据HSL中的三个值计算出一个颜色；
+  // hsla($hue, $saturation, $lightness, $alpha) //根据HSL中色调值、饱和度、亮度和透明度计算出一个颜色；
+  // hue($color) //获取HSL中的色调值；
+  // saturation($color) //获取HSL中的饱和度；
+  // lightness($color) //获取HSL中的亮度值；
+  // adjust-hue($color, $degree) //改变HSL中的色调值；
+  // lighten($color, $amount) //颜色变浅函数；
+  // darken($color, $amount) //颜色变深函数；
+  // saturate($color, $amount) //增加颜色的饱和度；
+  // desaturate($color, $amount) //减少颜色的饱和度；
+  // grayscale($color) //将该颜色转换为相对应的灰度颜色；
+  // complement($color) //获取该颜色值旋转180度后相对应的颜色；
+  // invert($color) //和complement相似，获取该颜色值旋转180度后相对应的颜色，不过不能改变透明度；
+
+  // 4. Opacity函数
+  // 在Sass中关于Opacity函数共有四种：
+  //
+  // alpha/opacity($color)  //获取颜色的透明度；
+  // rgba($color, $alpha) //改变颜色的透明度；
+  // opacify/fade-in($color, $amount) //让颜色更加不透明；
+  // transparentize/fade-out($color, $amount) //使颜色更加透明化；
+
+
+// 长阴影
+//$color：阴影开始的地方
+//$bg：背景的颜色
+//$step：阴影长度
+//$opacity：透明度
+@function longshadow($color, $bg, $step, $opacity: 1){
+  $result: null;
+
+  @for $i from 1 through $step {
+    // 第一种颜色占比
+    $weight: ( ( $i - 1 ) / $step ) * 100;
+    $colourMix: mix($bg, rgba($color, $opacity), $weight);
+
+    // 分隔符
+    $seperator: null;
+    @if ($i != $step){
+      $seperator: #{','};
+    }
+
+    $result: append( #{$result}, #{$i}px #{$i}px $colourMix $seperator );
+  }
+
+  @return $result;
+}
+
+// 使用示例：
+// $bg: rgb(255,255,255);
+// box-shadow: longshadow(darken($bg, 50%), $bg, 120, 0.1);
+
+.longshadow{
+  position: relative;
+
+  &::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0.25rem;
+    // box-shadow: longshadow(darken($bg, 30%), $bg, 120, 0.1);
+    box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 120);
+  }
+
+  &.longshadow-20::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 20); }
+  &.longshadow-30::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 30); }
+  &.longshadow-40::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 40); }
+  &.longshadow-60::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 60); }
+  &.longshadow-80::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 80); }
+  &.longshadow-100::after{ box-shadow: longshadow($longShadowColorBegin, $longShadowColorEnd, 100); }
+}
+
+.longshadow-container{
+  position: relative;
+  border-radius: $radius15;
+  z-index: 1;
+}
+
+
+
+
+// 长阴影（2个div background-image 模拟）
+.longshadowBg{
+  position: relative;
+
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+  }
+
+  &::before{
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 100%;
+
+    transform-origin: 0 50%;
+    transform: translate(100%, $radius15) skewY(45deg);
+    background: linear-gradient(to right bottom, $longShadowColorBegin, $longShadowColorEnd 50%, $longShadowColorEnd);
+  }
+  &::after{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+
+    transform-origin: 0 0;
+    transform: translate($radius15, 100%) skewX(45deg);
+    background: linear-gradient(to right bottom, $longShadowColorBegin, $longShadowColorEnd 50%, $longShadowColorEnd);
+  }
+
+  &.longshadowBg-small{
+    &::before{
+      height: 50%;
+    }
+  }
+}
+.longshadowBg-container{
+  position: relative;
+  border-radius: $radius15;
+  z-index: 1;
+}
+
+
+
+@mixin long-shadow(
+  $borderRadius: 0.1rem,
+  $colorBegin: $longShadowColorBegin,
+  $colorEnd: $longShadowColorEnd,
+  $rightBoxWidth: 1rem,
+  $bottomBoxHeight: 1rem,
+){
+  $aniTransition: all 0.3s $aniTimeFunction;
+  position: relative;
+  transition: $aniTransition;
+
+
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    transition: $aniTransition;
+  }
+
+  &::before{
+    top: 0;
+    right: 0;
+    width: $rightBoxWidth;
+    height: 100%;
+
+    transform-origin: 0 50%;
+    transform: translate(100%, $borderRadius) skewY(45deg);
+    background: linear-gradient(to right bottom, $colorBegin, $colorEnd 50%, $colorEnd);
+  }
+  &::after{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $bottomBoxHeight;
+
+    transform-origin: 0 0;
+    transform: translate($borderRadius, 100%) skewX(45deg);
+    background: linear-gradient(to right bottom, $colorBegin, $colorEnd 50%, $colorEnd);
+  }
+
+  &-container{
+    position: relative;
+    border-radius: $borderRadius;
+    transition: $aniTransition;
+    z-index: 1;
+  }
+}
+
+.zq-long-shadow{
+  @include long-shadow();
+}
+.zq-long-shadow-0{
+  @include long-shadow(0);
+}
+
+.zq-long-shadow-lg{
+  @include long-shadow(0);
+}
+
+
+
+// 短纯色长阴影
+//$color：颜色
+//$step：阴影长度
+@function short-shadow(
+  $color, 
+  $step: 4,
+){
+  $result: null;
+
+  @for $i from 1 through $step {
+
+    // 分隔符
+    $seperator: null;
+    @if ($i != $step){
+      $seperator: #{','};
+    }
+
+    $result: append( #{$result}, 0 #{$i}px $color $seperator );
+  }
+
+  @return $result;
+}
+
+// .zq-short-shadow{
+//   box-shadow: short-shadow(#007AFF);
+// }
+
+// 短纯色长阴影(背景色模拟)
+@mixin short-shadow-bg(
+  $color, 
+  $step: 4,
+  $br: 10,
+){
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: -#{$step/100}rem;
+    background: $color;
+    border-bottom-left-radius: #{$br/100}rem;
+    border-bottom-right-radius: #{$br/100}rem;
+  }
+
+  &-container{
+    position: relative;
+    height: 100%;
+    border-radius: #{$br/100}rem;
+    z-index: 1;
+  }
+}

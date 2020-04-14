@@ -1,0 +1,98 @@
+// animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+//
+// animation-name	指定要绑定到选择器的关键帧的名称
+// animation-duration	动画指定需要多少秒或毫秒完成
+// animation-timing-function	设置动画将如何完成一个周期
+// animation-delay	设置动画在启动前的延迟间隔。
+// animation-iteration-count	定义动画的播放次数。
+// animation-direction	指定是否应该轮流反向播放动画。
+// animation-fill-mode	规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。
+// animation-play-state	指定动画是否正在运行或已暂停。
+
+.box-enter,
+.box-appear{
+  // -webkit-transform: scale(0);
+  // transform: scale(0);
+  // transform: none;
+  opacity: 0;
+  -webkit-animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+
+.rotate-infinite{
+  -webkit-animation: rotate-infinite 1.5s linear infinite;
+  animation: rotate-infinite 1.5s linear infinite;
+}
+@-webkit-keyframes rotate-infinite {
+  0%   { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+@keyframes rotate-infinite {
+  0%   { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
+
+.circle-spread{
+  position: absolute;
+  top: 0rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background: transparent;
+  border: 4rpx solid #ff8e02;
+  border-radius: 50%;
+  opacity: 0.5;
+
+  -webkit-perspective: 400px;
+  perspective: 400px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+
+
+
+
+// 渐隐渐现
+.fade-enter{
+  animation-duration: 0.3s;
+  transform: none;
+  opacity: 0;
+}
+.fade-enter-active{
+  animation-fill-mode: forwards;
+  animation-name: fadeEnter;
+}
+.fade-leave{
+  animation-duration: 0.3s;
+  transform: none;
+  opacity: 1;
+}
+.fade-leave-active{
+  animation-fill-mode: forwards;
+  animation-name: fadeEnter;
+}
+
+@keyframes fadeEnter {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes fadeLeave {
+  0% {
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}

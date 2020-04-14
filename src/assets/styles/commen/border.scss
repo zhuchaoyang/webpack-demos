@@ -1,0 +1,19 @@
+/* 0.5px 边框 */
+.border-oneHalf{
+  position: relative;
+}
+.border-oneHalf::before{
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 200%;
+  height: 200%;
+  border: 2rpx solid #bbb;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scale(.5,.5);
+  transform: scale(.5,.5);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

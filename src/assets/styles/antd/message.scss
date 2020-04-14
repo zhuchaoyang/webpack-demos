@@ -1,0 +1,55 @@
+/*message框*/
+// body{
+//   .ant-message{
+//     text-align: center;
+//     z-index: 9999;
+//   }
+//   .ant-message-notice-content{
+//     min-height: 50px;
+//     line-height: 30px;
+//     padding: 10px 16px;
+//     box-shadow: 2px 4px 10px rgba(0, 0, 0, .3), -1px -1px 10px rgba(0, 0, 0, .3);
+//   }
+//   .ant-message  i.anticon{
+//     margin-right: 0;
+//     width: 30px;
+//     font-size: 18px;
+//     text-align: center;
+//   }
+// }
+
+.ant-message{
+  & > span {
+    display: initial;
+  }
+  .ant-message-notice-content{
+    // box-shadow: 2px 4px 10px rgba(0, 0, 0, .3), -1px -1px 10px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 10px 0 rgba(130,166,169,0.20);
+  }
+  .ant-message-custom-content{
+    .zq-message-icon{
+      line-height: 1;
+      margin-right: 0.08rem;
+      font-size: 0.16rem;
+    }
+    span{
+      display: inline;
+      font-size: 0.15rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .zq-message-icon-info{
+      color: rgb(96,181,240);
+    }
+    .zq-message-icon-warning{
+      color: rgb(240,157,67);
+    }
+    .zq-message-icon-success{
+      color: rgb(122,195,41);
+    }
+    .zq-message-icon-error{
+      color: rgb(236,118,118);
+    }
+  }
+}

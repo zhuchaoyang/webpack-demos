@@ -1,0 +1,83 @@
+// $baseFontFamily: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+// $baseFontFamily: 'Helvetica Neue','Hiragino Sans GB','WenQuanYi Micro Hei','Microsoft Yahei',sans-serif,'fontawesome';
+
+//腾讯云 字体
+// $baseFontFamily: PingFangSC-Light,'helvetica neue',arial,'hiragino sans gb','microsoft yahei ui','microsoft yahei',simsun,sans-serif;
+
+//阿里云字体
+// $baseFontFamily: 'PingFangSC','helvetica neue','hiragino sans gb','arial','microsoft yahei ui','microsoft yahei','simsun','sans-serif'!important;
+
+// antd字体
+$baseFontFamily: 'SourceHanSansCN', 'Noto Sans SC', "PingFang SC", "Helvetica Neue", "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,  "Hiragino Sans GB", "Microsoft YaHei",  Helvetica, Arial, sans-serif;
+
+
+
+//主背景色
+$bgColor: #fff;
+
+//根元素font-size
+$rootFontSize: 100px;
+
+//主文字
+$baseFontSize: 14px;
+$baseFontWeight: 400;
+
+$lineHeight: 1.42857143;
+
+
+// 主文字色
+$textColor: #333;
+// 浅6文字色
+$textColor6: #666;
+// 浅9文字色
+$textColor9: #999;
+
+//主链接色
+$linkColor: #333;
+$linkHoverColor: #38B0B7;
+
+//浅9链接色
+$linkColor9: #999;
+$linkHoverColor9: #38B0B7;
+
+
+
+
+// 页面背景色
+$bg: #F4F8F8;
+$bg2: #DBE7E7;
+// 阴影起始色
+$boxShadowColorBegin: #C3D2D2;
+
+// 新主题色值
+$themeColor: #FF4C4C;
+$themeGrayColor:#869E9F;
+$themeColorGreen: #38B0B7;
+
+// 页面背景色
+$bgLightColor: #F4F8F8;
+$bgDarkColor: #DBE7E7;
+
+//文字颜色
+$textDarkColor: #58696C; // 文字深色
+$textLightColor: #7F9396;// 文字浅色
+$textGroupingColor: #99ACB0; // 文字分组
+
+$textActiveColor: #2FB0B8; // 文字激活色，表示可用
+$textForbiddenColor: #BCC6C6; // 文字灰色，表示不可用或者不可点击
+
+$textGreenColor1: #2FB0B8; // 亮绿色1
+$textGreenColor2: #38B0B7; // 亮绿色2
+
+// 弹窗圆角
+$radius4: 0.04rem; // 按钮圆角
+$radius15: 0.15rem;// 弹窗圆角
+
+// 动画运动方式
+$aniTimeFunction: cubic-bezier(0.08, 0.82, 0.17, 1);
+$aniTimeFunction2: cubic-bezier(.645,.045,.355,1);
+
+
+@media (min-width: 768px){
+  $baseFontSize: 0.14rem;
+}

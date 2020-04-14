@@ -1,0 +1,111 @@
+// spin
+body{
+  .groupSpin > div .ant-spin{
+    top: 0;
+    height: 100vh;
+    max-height: initial;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  .groupSpin > div > .ant-spin-lg .ant-spin-dot{
+    top: 200px;
+  }
+
+  .ant-spin{
+    padding-top: 20px;
+    display: block;
+  }
+}
+
+// .ant-spin.zq-spin1{
+//   position: relative;
+//   padding-top: 0;
+//   height: 70px;
+//
+//   &>.ant-spin-dot{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     margin: -10px;
+//   }
+// }
+
+.zq-spin1{
+  div{
+    .ant-spin{
+      padding-top: 0;
+    }
+  }
+
+  &.ant-spin-nested-loading{
+    div{
+      .ant-spin{
+        height: 70px;
+      }
+    }
+  }
+}
+
+
+.zq-spin{
+  display: inline-block;
+}
+.zq-spin-dot{
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+.zq-spin-dot-spin{
+  transform: rotate(45deg);
+  animation: antRotate 1.2s infinite linear;
+}
+.zq-spin-dot{
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  width: 20px;
+  height: 20px
+}
+.zq-spin-dot-item {
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 9px;
+  background-color: #38B0B7;
+  border-radius: 100%;
+  transform: scale(.75);
+  transform-origin: 50% 50%;
+  opacity: .3;
+  animation: antSpinMove 1s infinite linear alternate;
+}
+.zq-spin-dot-item:nth-child(1) {
+  top: 0;
+  left: 0
+}
+.zq-spin-dot-item:nth-child(2) {
+  top: 0;
+  right: 0;
+  animation-delay: .4s;
+}
+
+.zq-spin-dot-item:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  animation-delay: .8s;
+}
+
+.zq-spin-dot-item:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  animation-delay: 1.2s;
+}
+@keyframes antRotate {
+  to {
+    transform: rotate(405deg);
+  }
+}
+@keyframes antSpinMove {
+  to {
+    opacity: 1;
+  }
+}

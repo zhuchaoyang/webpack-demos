@@ -1,0 +1,235 @@
+@import '@/assets/styles/setting.scss';
+
+.zq-markdown-view{
+  font-size: 14px;
+  font-family: Tahoma For Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: #262626;
+  line-height: 24px;
+  letter-spacing: .05em;
+  outline-style: none;
+  word-wrap: break-word;
+  -webkit-user-select: auto;
+
+  cursor: text;
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAUCAYAAACTQC2+AAAABGdBTUEAALGPC/xhBQAAATtJREFUSA3dlTFLA0EQhU+jlSkEG63EYGdlZZFG7QUbSyG/QP/C/Q0rqzQWQX+BwUKwtrexEFRQtFSI35NZWDa3soOHhQ8eM/v2zWw2N9xVVVUdwXUYoFxaq5il2wa8hvtG5dJaxYx16xFvLN8i3lmehiFC6Y94wbsTGsxZosajKA/7aewjrKZiyTocJO9DSYHT82r+YXyQs0eRfYBrD/Y1DB58OMyfeM/hrWq8N9qlZkmFBXiPPd6D7ikWUxwjrKWirTeJkzDeNYttKIxhDUuxiFGjfAnfMkUX3hs19emYqFt9P48mU6zVLEQPFjCfwgk8gyuwEd6pS5t0EQYmHhCXLZ8Kvz1oqmFO+H8HxVOXfZC5vwNd46y3xbx5ni1mQ4+dJ6NyDw4xX0GN9484YfcRhg+fcmmt408+5V99wSyVTWN94gAAAABJRU5ErkJggg==) 5 10,text;
+
+  &:first-child{
+    margin-top: 0!important;
+  }
+
+  a, a:active{
+    word-wrap: break-word;
+    color: #096dd9;
+  }
+  a:hover{
+    color: #1890ff;
+  }
+
+  img{
+    max-width: 100%;
+  }
+  mark{
+    padding: 0;
+    background: #ff0;
+  }
+  sup, sub{
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+  }
+  sup{
+    top: -.5em;
+  }
+  sub {
+    bottom: -.25em;
+  }
+
+  p{
+    min-height: 24px;
+    line-height: 24px;
+    white-space: normal;
+    margin: 0;
+    letter-spacing: .05em;
+  }
+  h1, h2, h3, h4, h5, h6{
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: normal;
+    color: #262626;
+    word-spacing: 1px;
+    font-weight: 700;
+  }
+
+  h1{
+    font-size: 28px;
+    line-height: 36px;
+    padding: 7px 0;
+  }
+  h2{
+    font-size: 24px;
+    line-height: 32px;
+    padding: 7px 0;
+  }
+  h3{
+    font-size: 20px;
+    line-height: 28px;
+    padding: 7px 0;
+  }
+  h4{
+    font-size: 16px;
+    line-height: 24px;
+    padding: 7px 0;
+  }
+  h5{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
+  }
+  h6{
+    font-size: 14px;
+    line-height: 24px;
+    padding: 7px 0;
+    font-weight: 400;
+  }
+  blockquote{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 1em;
+    margin-left: 0;
+    border-left: 3px solid #eee;
+    opacity: .6;
+  }
+  blockquote+blockquote{
+    margin-top: -5px;
+  }
+  code{
+    font-family: monospace;
+    font-size: inherit;
+    background-color: rgba(0,0,0,.06);
+    padding: 0 2px;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 2px 2px;
+    line-height: inherit;
+    word-wrap: break-word;
+    text-indent: 0;
+  }
+  pre{
+    overflow: visible;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    code{
+      display: inline;
+      max-width: none;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      vertical-align: inherit;
+      white-space: pre;
+      background: 0 0;
+      font-size: inherit;
+    }
+  }
+  ol{
+    list-style: decimal;
+  }
+  ul{
+    list-style: disc;
+  }
+  ol, ul{
+    margin: 0 0 0 3px;
+    padding: 0;
+
+    ol, ul{
+      margin-left: 0;
+
+      li{
+        margin-left: 2em;
+      }
+    }
+
+  }
+
+  li{
+    white-space: normal;
+    margin-left: 23px;
+  }
+
+  span{
+    display: inline-block;
+    min-width: 1px;
+    text-align: left;
+    text-indent: 0;
+    vertical-align: bottom;
+    white-space: normal;
+
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+
+    &.right{
+      text-align: right;
+    }
+    &.center{
+      text-align: center;
+    }
+  }
+  hr, div.hr{
+    border: 1px solid rgba(0,0,0,0);
+    padding: 18px 0;
+    border-radius: 2px 2px;
+  }
+
+  .theme-color{
+    color: $themeColor;
+  }
+}
+
+@media (max-width: 767px){
+  .zq-markdown-view{
+    font-size: 0.14rem;
+    line-height: 0.24rem;
+
+    p{
+      min-height: 0.24rem;
+      line-height: 0.24rem;
+    }
+    h1{
+      font-size: 0.28rem;
+      line-height: 0.26rem;
+      padding: 0.07rem 0;
+    }
+    h2{
+      font-size: 0.24rem;
+      line-height: 0.32rem;
+      padding: 0.07rem 0;
+    }
+    h3{
+      font-size: 0.2rem;
+      line-height: 0.28rem;
+      padding: 0.07rem 0;
+    }
+    h4{
+      font-size: 0.16rem;
+      line-height: 0.24rem;
+      padding: 0.07rem 0;
+    }
+    h5{
+      font-size: 0.14rem;
+      line-height: 0.24rem;
+      padding: 0.07rem 0;
+    }
+    h6{
+      font-size: 0.14rem;
+      line-height: 0.24rem;
+      padding: 0.07rem 0;
+      font-weight: 400;
+    }
+    li{
+      margin-left: 0.23rem;
+    }
+  }
+}

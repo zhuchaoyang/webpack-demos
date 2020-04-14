@@ -1,0 +1,12 @@
+@import '@/assets/styles/config.scss';
+
+@import './ali-puhui-bold.scss';
+@import './ali-puhui-heavy.scss';
+@import './DIN.scss';
+@import './helveticaNeue.scss';
+
+@font-face {
+  font-family: 'Cabin-Bold';
+  // font-display: swap;
+  src: url('~@/assets/styles/font/Cabin-Bold.otf');
+}

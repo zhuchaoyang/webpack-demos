@@ -1,0 +1,36 @@
+// 待删除，请使用config.scss
+@import "./setting.scss";
+
+// 设计配置
+@import "./config.scss";
+
+// 重置样式
+@import "./reset.scss";
+
+// 滚动条
+@import "./scrollBar.scss";
+
+// 字体、图标
+@import './font/index.scss';
+
+
+
+
+
+
+
+/*公共基础样式*/
+@import './app.scss';
+
+// flex布局
+@import './flex.scss';
+
+// 动画
+@import './ani.scss';
+
+// 基础样式
+@import './commen/index.scss';
+
+
+// 重置依赖插件样式
+@import './plugins/index.scss';

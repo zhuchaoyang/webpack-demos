@@ -1,0 +1,82 @@
+// @import '@/assets/styles/config.scss';
+
+// 颜色相关
+// 主题色调
+$colorTheme: #FF4C4C;  //红
+$colorThemeGreen: #00B5C0;  //绿(稍浅)
+$colorThemeGreen2: #38B0B7;  //绿(重)
+$colorThemeGreen3: #2FB0B8;  //绿
+$colorThemeYellow: #FDB13C;  //黄
+
+
+// 文字颜色 text-color
+$colorDark: #283436;  //比主标题更重
+$colorText: #58696C;  //主（主标题和内容）
+$colorTextVice: #7F9396;  //副（副标题）
+$colorTextDesc1: #99ACB0;  //描述色1（副标题、辅助描述词）
+$colorTextDesc2: #BCC6C6;  //描述色2（辅助描述词）
+
+// 背景色 background-color
+$colorBg: #DBE7E7;  //深（长阴影）
+$colorBgLighter: #E9F0F0;  //浅
+$colorBgLighter2: #F4F8F8;
+
+// 图标颜色 icon-color
+$colorIcon: #99ACB0;  //深
+$colorIconLighter: #B6D2D2;  //浅绿
+
+// 阴影起始色
+// 阴影起始结束色
+// $colorLongShadowBegin: #C3D2D2;
+// $colorLongShadowEnd: $colorBg;
+$longShadowColorBegin: rgba(61, 96, 96, 0.08);
+$longShadowColorEnd: rgba(219,231,231,0.01);
+
+
+// 文字相关
+// antd字体
+$fontFamily: -apple-system-font,  "PingFang SC", 'SourceHanSansCN', "Helvetica Neue", 'Noto Sans SC',  "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,  "Hiragino Sans GB", "Microsoft YaHei",  Helvetica, Arial, sans-serif;
+
+$fsize12: 0.12rem;
+$fsize13: 0.13rem;
+$fsize14: 0.14rem;
+$fsize16: 0.16rem;
+$fsize18: 0.18rem;
+$fsize20: 0.20rem;
+$fsize24: 0.24rem;
+$fsize28: 0.28rem;
+$fsize32: 0.32rem;
+
+// $lh: 1.42857143;
+$lh: 1.5;
+
+// 圆角
+$radius2: 0.02rem;
+$radius4: 0.04rem;
+$radius8: 0.08rem;
+$radius15: 0.15rem;
+
+// 动画运动方式
+$aniTimeFunction: cubic-bezier(0.08, 0.82, 0.17, 1);
+$aniTimeFunction2: cubic-bezier(.645,.045,.355,1);
+
+
+@media (min-width: 768px){
+  // 文字相关
+  $fsize12: 12px;
+  $fsize13: 13px;
+  $fsize14: 14px;
+  $fsize16: 16px;
+  $fsize18: 18px;
+  $fsize20: 20px;
+  $fsize24: 24px;
+  $fsize28: 28px;
+  $fsize32: 32px;
+
+  // 圆角
+  $radius2: 2px;
+  $radius4: 4px;
+  $radius8: 8px;
+  $radius15: 15px;
+
+}

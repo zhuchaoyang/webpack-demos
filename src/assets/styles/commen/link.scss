@@ -1,0 +1,30 @@
+/* css定义超链接是要有先后顺序的。否则，在某些浏览器里面有可能会出现某个样式不起作用的bug。不能正确显示想要的效果。
+
+CSS属性的排列顺序: L-V-H-A 。
+
+L-V-H-A是link、visited、hover、active的简写。
+
+它们分别表示:
+
+a:link是a链接的默认样式，即a链接未被点击过时a标签内容在页面上呈现的视觉效果。
+a:visited是a链接被访问过后的样式，即a链接被点击后a标签内容在页面上呈现的视觉效果。
+a:hover是鼠标移动到a链接上面时的样式，即鼠标悬浮在a标签内容上方时，其在页面上呈现的视觉效果。
+a:active是鼠标点击a链接时的样式，即从鼠标按键按下到鼠标按键弹起的过程中，a标签内容在页面上呈现的视觉效果。 */
+
+a{
+  color: $linkColor;
+  text-decoration: none;
+}
+a:not([href]){
+  color: inherit;
+}
+a:visited{
+  text-decoration: none;
+}
+a:hover{
+  color: $linkHoverColor;
+  /* text-decoration:underline; */
+}
+a:active{
+  color: $linkHoverColor;
+}

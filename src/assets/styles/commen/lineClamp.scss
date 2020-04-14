@@ -1,0 +1,46 @@
+/* 单行限制 */
+.line-clamp1{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;		/*允许长单词换行*/
+  word-break: break-all;		/*允许在单词内换行*/
+  /*word-break: keep-all;*/	/*只能在半角空格或连字符处换行*/
+}
+
+/* 限制行数 */
+.line-clamp{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;		/*允许长单词换行*/
+  word-break: break-all;		/*允许在单词内换行*/
+  /*word-break: keep-all;*/	/*只能在半角空格或连字符处换行*/
+
+  /* 参考 https://github.com/postcss/autoprefixer/issues/776  webpack打包 该属性会被移除 */
+  // https://www.cnblogs.com/yangguojin/p/10301981.html
+
+  // /* autoprefixer: off */
+  // -webkit-box-orient: vertical;
+  // /* autoprefixer: on */
+
+  /*! autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+.html2canvas-line-clamp{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  word-wrap: break-word;		/*允许长单词换行*/
+  word-break: break-all;		/*允许在单词内换行*/
+  /*word-break: keep-all;*/	/*只能在半角空格或连字符处换行*/
+
+  // /* autoprefixer: off
+  // -webkit-box-orient: vertical;
+  // /* autoprefixer: on */
+
+  /*! autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,183 @@
+
+// 弹窗 动画由中间出现
+.ant-modal-show-from-center{
+  transform-origin: 50% 50% !important;
+  .ant-modal{
+    transform-origin: 50% 50% !important;
+  }
+}
+// 透明弹窗
+.ant-modal-wrap.zq-modal-transparent{
+  text-align: center;
+
+  .ant-modal{
+    display: inline-block;
+  }
+  .ant-modal-content{
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .ant-modal-body{
+    padding: 0;
+  }
+}
+
+
+
+
+
+
+
+
+// 弹窗 关闭按钮 延迟出现
+.ant-modal{
+  .ant-modal-close{
+    animation: modalClose .5s linear 1 forwards;
+  }
+
+  .ant-modal-close-x{
+    &::before{
+      transition: all .4s ease-out;
+    }
+
+    &:hover::before{
+      transform: rotateZ(180deg);
+    }
+  }
+}
+@keyframes modalClose {
+  0% { opacity: 0;}
+  99% { opacity: 0;}
+  100% { opacity: 1;}
+}
+
+
+// 全屏弹窗(主题色背景)
+.modalFullScreenThemeColor{
+  background: rgba(56, 176, 183, .95);
+
+  .ant-modal-content{
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .ant-modal-body{
+    padding: 0;
+  }
+}
+
+
+// 透明 自动宽度弹窗
+.modal-transparent-autowidth{
+  text-align: center;
+
+  .ant-modal{
+    display: inline-block;
+  }
+  .ant-modal-content{
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .ant-modal-body{
+    padding: 0;
+  }
+
+  .ant-modal-close{
+    position: fixed;
+    right: 50px;
+    top: 25px;
+  }
+
+  .ant-modal-close-x{
+    font-size: 50px;
+    color: #fff;
+  }
+}
+
+
+// 弹窗1
+body .modal1{
+  .ant-modal-body{
+    padding: 0;
+  }
+  .ant-modal-close-x{
+    font-size: 30px;
+  }
+}
+//弹窗2
+body .modal2{
+  background: rgba(0, 0, 0, .5);
+  .ant-modal-body{
+    padding: 0;
+  }
+  .ant-modal-close{
+    right: -100px;
+  }
+  .ant-modal-close-x{
+    font-size: 50px;
+    color: #fff;
+  }
+  .modal2-wrap{
+    img{
+      height: auto;
+    }
+  }
+}
+
+
+
+
+
+.ticketPopup{
+  background: rgba(0, 0, 0, .5);
+  .ant-modal-content{
+    background: transparent;
+
+    .ant-modal-close{
+      position: fixed;
+      right: 200px;
+      top: 100px;
+    }
+  }
+
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  body .modal2{
+    .ant-modal-close{
+      right: initial;
+      top: initial;
+      bottom: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  body .ant-modal-wrap3{
+    .ant-modal-close{
+      right: 0;
+      top: 0;
+    }
+    .ant-modal-close-x{
+      font-size: 40px;
+    }
+  }
+  .ticketPopup{
+    // background: rgba(0, 0, 0, .5);
+    .ant-modal-content{
+      // background: transparent;
+
+      .ant-modal-close{
+        position: absolute;
+        right: initial;
+        top: initial;
+      }
+    }
+
+  }
+}
