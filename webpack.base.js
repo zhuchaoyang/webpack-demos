@@ -6,6 +6,11 @@ const src = path.resolve(__dirname, './src');
 const views = path.resolve(__dirname, './views');
 const node_modules = path.resolve(__dirname, './node_modules');
 
+// scripts 运行命令
+// const mode = process.env.NODE_ENV;
+const env = process.env.npm_lifecycle_event;
+
+
 // 多线程
 const HappyPack = require('happypack');
 const os = require('os');  // 系统操作函数
@@ -16,9 +21,16 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length }); // 指
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 //拷贝资源
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// 更好的错误展示
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
+// 注入资源至html
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
+
+// 脚本异步处理
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'); 
+
+// 使用 Day.js 替换 momentjs
+// const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 
 function getEntries (){
@@ -39,6 +51,7 @@ module.exports = {
     // extensions: ['js', 'jsx', 'json'],
   },
   externals: {
+    "cyberplayer": "cyberplayer",
     // "jquery": "jQuery",
     // 'videojs': 'videojs',
     // "swiper": "Swiper",
@@ -211,6 +224,7 @@ module.exports = {
       // filename: 'index.html',
       // favicon: path.resolve(__dirname, 'public/static/favic.ico'),
       title: '知群 - 专业是一种力量',
+      inject: true,
       // chunks: ['main', 'manifest', 'vendor'], //包含的chunks
       // excludeChunks: ['b', 'c'], //排除的chunks
     }),
@@ -239,8 +253,46 @@ module.exports = {
       //启用debug 用于故障排查 默认 false。
       debug: false,
     }),
-    new FriendlyErrorsWebpackPlugin(),
+    // new AntdDayjsWebpackPlugin(),
 
+    // 使用DllReferencePlugin 插件来告诉webpack未用了哪些动态链接库
+    new webpack.DllReferencePlugin({
+      // manifest文件中请求的上下文。
+      context: path.join(__dirname),
+      // 将描述vue动态链接库的文件引入
+      manifest: require('./dll/dll-manifest.json'),
+      // dll暴露的地方的名称(默认值为manifest.name)
+      // name: '',
+      // dll中内容的前缀
+      // scope: '',
+      // dll是如何暴露的libraryTarget
+      // sourceType: '',
+
+    }),
+
+
+    //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
+    new AddAssetHtmlPlugin([{
+      filepath: path.resolve(__dirname,'./dll/dll.*.js'),
+      // outputPath: utils.assetsPath('js'),
+      // publicPath: path.posix.join(config.build.assetsPublicPath, 'static/js'),
+      includeSourcemap: false,
+      // hash: true,
+
+      outputPath: 'dll',
+      publicPath: 'dll',
+    }]),
+    new HtmlWebpackTagsPlugin({
+      tags: [
+        'static/cyberplayer/3.4.1/cyberplayer.js',
+      ],
+      append: false, // false 在其他资源的之前添加 true 在其他资源之后添加
+    }),
+
+
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer'
+    }),
 
   ]
 }

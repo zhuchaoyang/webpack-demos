@@ -53,12 +53,13 @@ const getStyleLodersCommen = function(){
 }
 
 
-let decConfig = {
-  mode: 'development',
+let proConfig = {
+  mode: 'production',
   output: {
     filename: 'assets/js/[name].[chunkHash:8].js',
     chunkFilename: 'assets/js/[id].[chunkHash:8].js',
     path: dist,
+    // publicPath: 'https://izhiqun.com/m/'
   },
   devtool: 'hidden-source-map',
   optimization: {
@@ -152,10 +153,12 @@ let decConfig = {
       logLevel: 'info'
     })
 
+
+
   ]
 
 }
 
 
 // module.exports = smp.wrap(merge(baseConfig, decConfig));
-module.exports = merge(baseConfig, decConfig);
+module.exports = merge(baseConfig, proConfig);

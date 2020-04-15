@@ -1,8 +1,8 @@
 import React from "react";
 import { Router } from "dva/router";
 import { ConfigProvider } from "antd";
-// import zh_CN from "antd/lib/locale-provider/zh_CN";
-import zhCN from 'antd/es/locale/zh_CN';
+import zhCN from "antd/lib/locale-provider/zh_CN";
+// import zhCN from 'antd/es/locale/zh_CN';
 import { createRoutes } from "@/utils/core";
 import { dynamicWrapper } from "@/utils/core";
 

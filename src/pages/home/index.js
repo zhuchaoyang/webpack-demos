@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'dva'
 import styles from './index.scss'
 
+// import { Button } from 'antd' 
+
 
 console.log('styles',styles);
 console.warn('styles', '警告');
@@ -23,6 +25,8 @@ class App extends Component {
       <div className={styles.page}>
         <div className="layout">
           <div className="layout-header">我是3header</div>
+          {/* <Button>默认</Button> */}
+
         </div>
       </div>
     )

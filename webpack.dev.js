@@ -12,6 +12,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 
 
+
 const getStyleLodersCommen = function(){
   let arr = [
     'style-loader',
