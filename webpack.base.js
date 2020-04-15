@@ -1,10 +1,10 @@
+const merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
+// const dllConfig = require('./webpack.dll.config.js');
 
 const dist = path.resolve(__dirname, './dist');
 const src = path.resolve(__dirname, './src');
-const views = path.resolve(__dirname, './views');
-const node_modules = path.resolve(__dirname, './node_modules');
 
 // scripts 运行命令
 // const mode = process.env.NODE_ENV;
@@ -16,12 +16,11 @@ const HappyPack = require('happypack');
 const os = require('os');  // 系统操作函数
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length }); // 指定线程池个数
 
-
- //引入html模板
-const HtmlWebpackPlugin  = require('html-webpack-plugin');
 //拷贝资源
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+ //引入html模板
+const HtmlWebpackPlugin  = require('html-webpack-plugin');
 // 注入资源至html
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
@@ -39,7 +38,7 @@ function getEntries (){
   return entries;
 }
 
-module.exports = {
+const baseConfig = {
   // 输入
   entry: getEntries(),
   // 解析
@@ -219,23 +218,12 @@ module.exports = {
   },
   // 插件
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(views, 'index.ejs'),
-      // filename: 'index.html',
-      // favicon: path.resolve(__dirname, 'public/static/favic.ico'),
-      title: '知群 - 专业是一种力量',
-      inject: true,
-      // chunks: ['main', 'manifest', 'vendor'], //包含的chunks
-      // excludeChunks: ['b', 'c'], //排除的chunks
-    }),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, './public'),
       }
     ], {
-    	ignore: [
-    		'node_modules/'
-    	]
+    	ignore: [ 'node_modules/' ]
     }),
     new HappyPack({
       //用id来标识 happypack处理那里类文件
@@ -253,7 +241,25 @@ module.exports = {
       //启用debug 用于故障排查 默认 false。
       debug: false,
     }),
-    // new AntdDayjsWebpackPlugin(),
+
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(__dirname, './views/index.ejs'),
+      // filename: 'index.html',
+      // favicon: path.resolve(__dirname, 'public/static/favic.ico'),
+      title: '知群 - 专业是一种力量',
+      // chunks: ['main', 'manifest', 'vendor'], //包含的chunks
+      // excludeChunks: ['b', 'c'], //排除的chunks
+    }),
+    new HtmlWebpackTagsPlugin({
+      tags: [
+        'static/cyberplayer/3.4.1/cyberplayer.js',
+      ],
+      append: false, // false 在其他资源的之前添加 true 在其他资源之后添加
+    }),
+
+
+    
 
     // 使用DllReferencePlugin 插件来告诉webpack未用了哪些动态链接库
     new webpack.DllReferencePlugin({
@@ -269,8 +275,6 @@ module.exports = {
       // sourceType: '',
 
     }),
-
-
     //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
     new AddAssetHtmlPlugin([{
       filepath: path.resolve(__dirname,'./dll/dll.*.js'),
@@ -282,18 +286,17 @@ module.exports = {
       outputPath: 'dll',
       publicPath: 'dll',
     }]),
-    new HtmlWebpackTagsPlugin({
-      tags: [
-        'static/cyberplayer/3.4.1/cyberplayer.js',
-      ],
-      append: false, // false 在其他资源的之前添加 true 在其他资源之后添加
-    }),
 
+    
 
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
 
+    // new AntdDayjsWebpackPlugin(),
+
   ]
 }
 
+module.exports = baseConfig;
+// module.exports = merge(baseConfig, dllConfig);

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'dva'
 import styles from './index.scss'
 
-// import { Button } from 'antd' 
+import { Button } from 'antd' 
 
 
 console.log('styles',styles);
@@ -25,7 +25,7 @@ class App extends Component {
       <div className={styles.page}>
         <div className="layout">
           <div className="layout-header">我是3header</div>
-          {/* <Button>默认</Button> */}
+          <Button>默认</Button>
 
         </div>
       </div>

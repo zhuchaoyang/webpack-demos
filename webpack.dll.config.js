@@ -29,3 +29,28 @@ module.exports = {
     })
   ]
 }
+
+
+
+// const path = require('path');
+// const AutoDllPlugin = require('autodll-webpack-plugin');
+
+// module.exports = {
+//   plugins: [
+//     new AutoDllPlugin({
+//       inject: true, //设为 true 就把 DLL bundles 插到 index.html 里
+//       debug: true,
+//       // AutoDllPlugin 的 context 必须和 package.json 的同级目录，要不然会链接失败
+//       // context: path.resolve(__dirname, '../'),
+//       filename: '[name].[chunkHash:8].js',
+//       path: path.resolve(__dirname, './dll'),
+//       entry: {
+//         react: [
+//           'react', 
+//           'react-dom',
+//           'history'
+//         ]
+//       }
+//     })
+//   ]
+// }
