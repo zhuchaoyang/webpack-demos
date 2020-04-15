@@ -6,11 +6,18 @@ const src = path.resolve(__dirname, './src');
 const views = path.resolve(__dirname, './views');
 const node_modules = path.resolve(__dirname, './node_modules');
 
+// 多线程
+const HappyPack = require('happypack');
+const os = require('os');  // 系统操作函数
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length }); // 指定线程池个数
+
+
  //引入html模板
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 //拷贝资源
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-
+// 更好的错误展示
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 
 
@@ -136,7 +143,9 @@ module.exports = {
       // js
       {
         test: /\.jsx?$/,
-        use: ['babel-loader'],
+        // use: ['babel-loader'],
+        //把对.js 的文件处理交给id为happyBabel 的HappyPack 的实例执行
+        use: ['happypack/loader?id=happyBabel'],
         include: path.join(__dirname, 'src'),
         exclude: /(node_modules)/,
       },
@@ -214,6 +223,24 @@ module.exports = {
     		'node_modules/'
     	]
     }),
+    new HappyPack({
+      //用id来标识 happypack处理那里类文件
+      id: 'happyBabel',
+      //如何处理  用法和 webpack Loader 配置中一样.
+      loaders: [{
+        loader: 'babel-loader?cacheDirectory=true',
+      }],
+      //代表开启几个子进程去处理这一类型的文件，默认是3个，类型必须是整数。
+      // threads: 3,
+      //共享进程池,即多个 HappyPack 实例都使用同一个共享进程池中的子进程去处理任务，以防止资源占用过多。
+      threadPool: happyThreadPool,
+      //允许 HappyPack 输出日志
+      verbose: true,
+      //启用debug 用于故障排查 默认 false。
+      debug: false,
+    }),
+    new FriendlyErrorsWebpackPlugin(),
+
 
   ]
 }

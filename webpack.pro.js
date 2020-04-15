@@ -6,6 +6,11 @@ const path = require('path');
 const dist = path.resolve(__dirname, './dist');
 const src = path.resolve(__dirname, './src');
 
+// 多线程
+const HappyPack = require('happypack');
+const os = require('os');  // 系统操作函数
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length }); // 指定线程池个数
+
 
 //清除打包目录
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -22,6 +27,13 @@ const TerseWebpackPlugin = require('terser-webpack-plugin');
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
 const Cssnano =  require('cssnano');
+
+// 打包文件分析工具
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+// 打包速度分析工具
+// const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin');
+// const smp = new SpeedMeasureWebpackPlugin();
 
 
 
@@ -127,12 +139,23 @@ let decConfig = {
       }
     }),
 
-
-    
+    // 打包文件分析
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      analyzerHost: '127.0.0.1',
+      analyzerPort: 8888,
+      reportFilename: 'report.html',
+      defaultSizes: 'parsed',
+      openAnalyzer: true,
+      generateStatsFile: false,
+      statsFilename: 'stats.json',
+      logLevel: 'info'
+    })
 
   ]
 
 }
 
 
+// module.exports = smp.wrap(merge(baseConfig, decConfig));
 module.exports = merge(baseConfig, decConfig);
