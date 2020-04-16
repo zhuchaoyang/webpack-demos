@@ -35,6 +35,9 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 // const SpeedMeasureWebpackPlugin = require('speed-measure-webpack-plugin');
 // const smp = new SpeedMeasureWebpackPlugin();
 
+// gzip压缩
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+
 
 
 const getStyleLodersCommen = function(){
@@ -153,7 +156,18 @@ let proConfig = {
     //   logLevel: 'info'
     // })
 
-
+    new CompressionWebpackPlugin({
+      test: new RegExp('\\.(js|css)$'),
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      // 只处理大于xx字节 的文件，默认：0
+      // threshold: 10240,
+      // threshold: 8192,
+      // 示例：一个1024b大小的文件，压缩后大小为768b，minRatio : 0.75
+      minRatio: 0.8, // 默认: 0.8
+      // 是否删除源文件，默认: false
+      deleteOriginalAssets: false
+    }),
 
   ]
 
